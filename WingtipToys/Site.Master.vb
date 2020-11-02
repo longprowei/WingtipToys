@@ -1,4 +1,6 @@
 ﻿Imports Microsoft.AspNet.Identity
+Imports System.Linq
+Imports WingtipToys.Models
 
 Public Class SiteMaster
     Inherits MasterPage
@@ -48,6 +50,12 @@ Public Class SiteMaster
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
 
     End Sub
+
+    Public Function GetCategories() As IQueryable(Of Category)
+        Dim _db = New WingtipToys.Models.ProductContext()
+        Dim query As IQueryable(Of Category) = _db.Categories
+        Return query
+    End Function
 
     Protected Sub Unnamed_LoggingOut(sender As Object, e As LoginCancelEventArgs)
         Context.GetOwinContext().Authentication.SignOut(DefaultAuthenticationTypes.ApplicationCookie)
