@@ -1,6 +1,6 @@
 ﻿Imports Microsoft.AspNet.Identity
-Imports System.Linq
 Imports WingtipToys.Models
+Imports WingtipToys.Logic
 
 Public Class SiteMaster
     Inherits MasterPage
@@ -49,6 +49,13 @@ Public Class SiteMaster
 
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
 
+    End Sub
+
+    Protected Sub Page_PreRender(sender As Object, e As EventArgs)
+        Using usersShoppingCart As New ShoppingCartActions()
+            Dim cartStr As String = String.Format("Cart ({0})", usersShoppingCart.GetCount())
+            cartCount.InnerText = cartStr
+        End Using
     End Sub
 
     Public Function GetCategories() As IQueryable(Of Category)

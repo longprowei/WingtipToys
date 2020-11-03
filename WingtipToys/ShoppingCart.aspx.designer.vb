@@ -11,41 +11,50 @@ Option Strict On
 Option Explicit On
 
 
-Partial Public Class SiteMaster
+Partial Public Class ShoppingCart
 
     '''<summary>
-    '''cartCount control.
+    '''ShoppingCartTitle control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents cartCount As Global.System.Web.UI.HtmlControls.HtmlAnchor
+    Protected WithEvents ShoppingCartTitle As Global.System.Web.UI.HtmlControls.HtmlGenericControl
 
     '''<summary>
-    '''Image1 control.
+    '''CartList control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents Image1 As Global.System.Web.UI.WebControls.Image
+    Protected WithEvents CartList As Global.System.Web.UI.WebControls.GridView
 
     '''<summary>
-    '''categoryList control.
+    '''LabelTotalText control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents categoryList As Global.System.Web.UI.WebControls.ListView
+    Protected WithEvents LabelTotalText As Global.System.Web.UI.WebControls.Label
 
     '''<summary>
-    '''MainContent control.
+    '''lblTotal control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents MainContent As Global.System.Web.UI.WebControls.ContentPlaceHolder
+    Protected WithEvents lblTotal As Global.System.Web.UI.WebControls.Label
+
+    '''<summary>
+    '''UpdateBtn control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents UpdateBtn As Global.System.Web.UI.WebControls.Button
 End Class

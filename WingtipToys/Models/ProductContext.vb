@@ -9,5 +9,6 @@ Namespace Models
 
         Public Property Categories As DbSet(Of Category)
         Public Property Products As DbSet(Of Product)
+        Public Property ShoppingCartItems As DbSet(Of CartItem)
     End Class
 End Namespace
