@@ -31,7 +31,10 @@ Partial Public Class Login
 
             Select Case result
                 Case SignInStatus.Success
+                    Dim usersShoppingCart As New Logic.ShoppingCartActions()
+                    Dim cartId As String = usersShoppingCart.GetCartId()
                     IdentityHelper.RedirectToReturnUrl(Request.QueryString("ReturnUrl"), Response)
+                    usersShoppingCart.MigrateCart(cartId, Email.Text)
                     Exit Select
                 Case SignInStatus.LockedOut
                     Response.Redirect("/Account/Lockout")

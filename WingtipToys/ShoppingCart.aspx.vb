@@ -18,6 +18,7 @@ Public Class ShoppingCart
                 lblTotal.Text = ""
                 ShoppingCartTitle.InnerText = "Shopping Cart is Empty"
                 UpdateBtn.Visible = False
+                CheckoutImageBtn.Visible = False
             End If
         End Using
     End Sub
@@ -66,6 +67,13 @@ Public Class ShoppingCart
 
     Protected Sub UpdateBtn_Click(ByVal sender As Object, ByVal e As EventArgs)
         UpdateCartItems()
+    End Sub
+
+    Protected Sub CheckoutBtn_Click(sender As Object, e As ImageClickEventArgs)
+        Using usersShoppingCart As New ShoppingCartActions()
+            Session("payment_amt") = usersShoppingCart.GetTotal()
+            Response.Redirect("Checkout/CheckoutStart.aspx")
+        End Using
     End Sub
 
 End Class

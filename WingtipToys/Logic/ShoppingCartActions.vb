@@ -146,6 +146,15 @@ Namespace Logic
             Public PurchaseQuantity As Integer
             Public RemoveItem As Boolean
         End Structure
+
+        Public Sub MigrateCart(cartId As String, userName As String)
+            Dim shoppingCart = _db.ShoppingCartItems.Where(Function(c) c.CartId = cartId)
+            For Each item As CartItem In shoppingCart
+                item.CartId = userName
+            Next
+            HttpContext.Current.Session(CartSessionKey) = userName
+            _db.SaveChanges()
+        End Sub
     End Class
 End Namespace
 

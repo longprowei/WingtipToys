@@ -21,7 +21,13 @@ Partial Public Class Register
             ' Dim callbackUrl = IdentityHelper.GetUserConfirmationRedirectUrl(code, user.Id, Request)
             ' manager.SendEmail(user.Id, "Confirm your account", "Please confirm your account by clicking <a href=""" & callbackUrl & """>here</a>.")
 
-            signInManager.SignIn(user, isPersistent := False, rememberBrowser := False)
+            signInManager.SignIn(user, isPersistent:=False, rememberBrowser:=False)
+
+            Using usersShoppingCart As New Logic.ShoppingCartActions()
+                Dim cartId As String = usersShoppingCart.GetCartId()
+                usersShoppingCart.MigrateCart(cartId, user.Id)
+            End Using
+
             IdentityHelper.RedirectToReturnUrl(Request.QueryString("ReturnUrl"), Response)
         Else
             ErrorMessage.Text = result.Errors.FirstOrDefault()
