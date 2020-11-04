@@ -1,6 +1,7 @@
 ﻿Imports System.Web.Optimization
 Imports System.Data.Entity
 Imports WingtipToys.Models
+Imports WingtipToys.Logic
 
 Public Class Global_asax
     Inherits HttpApplication
@@ -11,5 +12,8 @@ Public Class Global_asax
         BundleConfig.RegisterBundles(BundleTable.Bundles)
 
         Database.SetInitializer(New ProductDatabaseInitializer())
+
+        Dim roleActions As New RoleActions()
+        roleActions.AddUserAndRole()
     End Sub
 End Class

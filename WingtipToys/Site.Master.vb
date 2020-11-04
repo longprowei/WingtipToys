@@ -48,7 +48,9 @@ Public Class SiteMaster
     End Sub
 
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
-
+        If HttpContext.Current.User.IsInRole("canEdit") Then
+            adminLink.Visible = True
+        End If
     End Sub
 
     Protected Sub Page_PreRender(sender As Object, e As EventArgs)
