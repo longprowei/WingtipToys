@@ -36,7 +36,7 @@
                             </tr>
                             <tr>
                                 <td>
-                                    <a href="ProductDetails.aspx?productID=<%#:Item.ProductID%>">
+                                    <a href="<%#: GetRouteUrl("ProductByNameRoute", New With {.productName = Item.ProductName}) %>">
                                         <span>
                                             <%#:Item.ProductName%>
                                         </span>
@@ -46,7 +46,7 @@
                                         <b>Price: </b><%#:String.Format("{0:c}", Item.UnitPrice)%>
                                     </span>
                                     <br />
-                                    <a href="<%#: GetRouteUrl("ProductByNameRoute", New With {.productName = Item.ProductName}) %>">               
+                                    <a href="/AddToCart.aspx?productID=<%#:Item.ProductID %>">               
                                         <span class="ProductListItem">
                                             <b>Add To Cart<b>
                                         </span>           
