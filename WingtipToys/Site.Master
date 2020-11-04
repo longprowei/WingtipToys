@@ -91,7 +91,7 @@
                 SelectMethod="GetCategories" >
                 <ItemTemplate>
                     <b style="font-size: large; font-style: normal">
-                        <a href="/ProductList.aspx?id=<%#: Item.CategoryID %>">
+                        <a href="<%#: GetRouteUrl("ProductsByCategoryRoute", New With {.categoryName = Item.CategoryName}) %>">
                         <%#: Item.CategoryName %>
                         </a>
                     </b>

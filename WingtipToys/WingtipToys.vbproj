@@ -442,6 +442,7 @@
     <Compile Include="Logic\AddProducts.vb" />
     <Compile Include="Logic\PayPalFunctions.vb" />
     <Compile Include="Logic\RoleActions.vb" />
+    <Compile Include="Logic\RouteActions .vb" />
     <Compile Include="Logic\ShoppingCartActions.vb" />
     <Compile Include="Models\CartItem.vb" />
     <Compile Include="Models\Category.vb" />

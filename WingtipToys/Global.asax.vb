@@ -15,5 +15,8 @@ Public Class Global_asax
 
         Dim roleActions As New RoleActions()
         roleActions.AddUserAndRole()
+
+        Dim routeActions As New RouteActions()
+        routeActions.RegisterCustomRoutes(RouteTable.Routes)
     End Sub
 End Class
