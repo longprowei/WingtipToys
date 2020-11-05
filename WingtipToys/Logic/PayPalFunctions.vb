@@ -13,9 +13,9 @@ Public Class NVPAPICaller
     Private Const SIGNATURE As String = "SIGNATURE"
     Private Const PWD As String = "PWD"
     Private Const ACCT As String = "ACCT"
-    Public APIUsername As String = "sb-wlegw3638857_api1.business.example.com"
-    Private APIPassword As String = "QZ8P3H7ZQ5X68DWP"
-    Private APISignature As String = "APxsKCC3cSCVLODAWqxKsGzqWE1sASbgEFi.MeilW1db7toCG4AOoG-v"
+    Public APIUsername As String = "xxx"
+    Private APIPassword As String = "xxx"
+    Private APISignature As String = "xxxx"
     Private Subject As String = ""
     Private BNCode As String = "PP-ECWizard"
     Private Const Timeout As Integer = 30000
@@ -136,7 +136,8 @@ Public Class NVPAPICaller
                 myWriter.Write(strPost)
             End Using
 
-        Catch __unusedException1__ As Exception
+        Catch ex As Exception
+            Logic.ExceptionUtility.LogException(ex, "HttpCall in PayPalFunction.vb")
         End Try
 
         Dim objResponse As HttpWebResponse = CType(objRequest.GetResponse(), HttpWebResponse)

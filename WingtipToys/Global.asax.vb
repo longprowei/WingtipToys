@@ -19,4 +19,15 @@ Public Class Global_asax
         Dim routeActions As New RouteActions()
         routeActions.RegisterCustomRoutes(RouteTable.Routes)
     End Sub
+
+    Sub Application_Error(sender As Object, e As EventArgs)
+        Dim exc As Exception = Server.GetLastError()
+
+        If TypeOf exc Is HttpUnhandledException Then
+            If exc.InnerException IsNot Nothing Then
+                exc = New Exception(exc.InnerException.Message)
+                Server.Transfer("ErrorPage.aspx?handler=Application_Error%20-%20Global.asax", True)
+            End If
+        End If
+    End Sub
 End Class
